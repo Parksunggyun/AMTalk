@@ -1,4 +1,4 @@
-package altong.mon.amtalk;
+package altong.mon.amtalk.viewmodel;
 
 /*
  * Created by 15U560 on 2017-11-29.
@@ -9,4 +9,5 @@ public interface ViewModel {
     void onResume();
     void onStart();
     void onPause();
+
 }

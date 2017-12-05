@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.constraint.ConstraintLayout
+            android:visibility="gone"
+            android:id="@+id/friendChatLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/friendImgView"
+                android:layout_margin="@dimen/dp8"
+                android:src="@drawable/ngenyuk"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txtParentLayout"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/txtParentLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/friendChatLayout"
+                app:layout_constraintStart_toEndOf="@id/friendImgView"
+                app:layout_constraintEnd_toEndOf="@+id/friendChatLayout"
+                android:layout_marginTop="@dimen/dp8"
+                android:layout_marginEnd="16dp">
+
+                <TextView
+                    tools:text="asdasdsadsadasdsadas"
+                    android:background="@drawable/you_chat_bubble"
+                    android:id="@+id/friendMsgTxtView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:visibility="gone"
+            android:id="@+id/myChatLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/myParent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/myChatLayout"
+                app:layout_constraintStart_toStartOf="@+id/myChatLayout"
+                android:layout_marginTop="@dimen/dp8"
+                android:layout_marginEnd="@dimen/dp8"
+                android:layout_marginStart="@dimen/dp16">
+
+                <TextView
+                    app:layout_constraintEnd_toEndOf="@+id/myParent"
+                    tools:text="asdasdsad"
+                    android:background="@drawable/my_chat_bubble"
+                    android:id="@+id/myMsgTxtView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

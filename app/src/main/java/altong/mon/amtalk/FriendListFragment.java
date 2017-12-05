@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 
 import java.util.Vector;
 
+import altong.mon.amtalk.adapter.ProfileAdapter;
 import altong.mon.amtalk.databinding.FragmentFriendlistBinding;
+import altong.mon.amtalk.item.Profile;
 
 /*
  * Created by 15U560 on 2017-11-29.

@@ -1,4 +1,4 @@
-package altong.mon.amtalk;
+package altong.mon.amtalk.viewmodel;
 
 /*
  * Created by 15U560 on 2017-11-29.
@@ -9,18 +9,23 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import altong.mon.amtalk.R;
+import altong.mon.amtalk.adapter.MainFragmentAdapter;
+
 public class MainViewModel implements ViewModel {
 
     private FloatingActionButton fab;
     private TabLayout tab;
     private ViewPager pager;
     private MainFragmentAdapter adapter;
+    private int position;
 
-    MainViewModel(FloatingActionButton fab, TabLayout tab, ViewPager pager, MainFragmentAdapter adapter) {
+    MainViewModel(FloatingActionButton fab, TabLayout tab, ViewPager pager, MainFragmentAdapter adapter, int position) {
         this.fab = fab;
         this.tab = tab;
         this.pager = pager;
         this.adapter = adapter;
+        this.position = position;
     }
 
     @Override
@@ -50,6 +55,7 @@ public class MainViewModel implements ViewModel {
         tab.addTab(tab.newTab().setIcon(R.drawable.ic_more_horiz_black_24dp),2);
         tab.addOnTabSelectedListener(pagerListener);
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab));
+        pager.setCurrentItem(position);
     }
     private TabLayout.OnTabSelectedListener pagerListener = new TabLayout.OnTabSelectedListener() {
         @Override

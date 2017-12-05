@@ -1,4 +1,4 @@
-package altong.mon.amtalk;
+package altong.mon.amtalk.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import java.util.Vector;
 
+import altong.mon.amtalk.item.Profile;
 import altong.mon.amtalk.databinding.ItemHeaderBinding;
 import altong.mon.amtalk.databinding.ItemProfileBinding;
 

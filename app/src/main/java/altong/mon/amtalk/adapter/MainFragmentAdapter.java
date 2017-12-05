@@ -1,8 +1,12 @@
-package altong.mon.amtalk;
+package altong.mon.amtalk.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import altong.mon.amtalk.ChatListFragment;
+import altong.mon.amtalk.FriendListFragment;
+import altong.mon.amtalk.SetupFragment;
 
 /*
  * Created by 15U560 on 2017-11-29.
