@@ -7,30 +7,36 @@ package altong.mon.amtalk.item;
 public class Profile {
 
     private int url;
-    private String name;
+    private String nickname;
     private String msg;
     private String time;
+    private String strUrl;
 
 
-    public Profile(int url, String name, String msg) {
+    public Profile(String strUrl, int url, String nickname, String msg) {
         this.url = url;
-        this.name = name;
+        this.nickname = nickname;
         this.msg = msg;
+        this.strUrl = strUrl;
     }
 
-    public Profile(int url, String name, String msg, String time) {
+    public Profile(int url, String nickname, String msg, String time) {
         this.url = url;
-        this.name = name;
+        this.nickname = nickname;
         this.msg = msg;
         this.time = time;
+    }
+
+    public String getStrUrl() {
+        return strUrl;
     }
 
     public int getUrl() {
         return url;
     }
 
-    public String getName() {
-        return name;
+    public String getNickname() {
+        return nickname;
     }
 
     public String getMsg() {

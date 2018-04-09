@@ -4,28 +4,37 @@ package altong.mon.amtalk.viewmodel;
  * Created by 15U560 on 2017-11-29.
  */
 
-import android.support.design.widget.FloatingActionButton;
+import android.app.Activity;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
 import altong.mon.amtalk.R;
+import altong.mon.amtalk.SearchActivity;
 import altong.mon.amtalk.adapter.MainFragmentAdapter;
 
 public class MainViewModel implements ViewModel {
 
-    private FloatingActionButton fab;
+    private Activity activity;
+    private FloatingActionsMenu fab;
     private TabLayout tab;
     private ViewPager pager;
     private MainFragmentAdapter adapter;
     private int position;
+    private FloatingActionButton[] fabs;
 
-    MainViewModel(FloatingActionButton fab, TabLayout tab, ViewPager pager, MainFragmentAdapter adapter, int position) {
+    public MainViewModel(Activity activity, FloatingActionsMenu fab, TabLayout tab, ViewPager pager, MainFragmentAdapter adapter, int position, FloatingActionButton... fabs) {
+        this.activity = activity;
         this.fab = fab;
         this.tab = tab;
         this.pager = pager;
         this.adapter = adapter;
         this.position = position;
+        this.fabs = fabs;
     }
 
     @Override
@@ -63,11 +72,11 @@ public class MainViewModel implements ViewModel {
             pager.setCurrentItem(tab.getPosition());
             switch (tab.getPosition()) {
                 case 0:
-                    fab.setImageResource(R.drawable.ic_person_add_black_24dp);
+                    //fab.setBackgroundResource(R.drawable.ic_person_add_black_24dp);
                     fab.setVisibility(View.VISIBLE);
                     break;
                 case 1:
-                    fab.setImageResource(R.drawable.ic_message_black_24dp);
+                    //fab.setBackgroundResource(R.drawable.ic_message_black_24dp);
                     fab.setVisibility(View.VISIBLE);
                     break;
                 case 2:
@@ -78,4 +87,16 @@ public class MainViewModel implements ViewModel {
         @Override public void onTabUnselected(TabLayout.Tab tab) {}
         @Override public void onTabReselected(TabLayout.Tab tab) {}
     };
+
+    public void fabListener(View view) {
+        switch (view.getId()) {
+            case R.id.searchEmailFab:
+                activity.startActivity(new Intent(activity.getApplicationContext(), SearchActivity.class).putExtra("type","email"));
+                break;
+            case R.id.searchNicknameFab:
+                activity.startActivity(new Intent(activity.getApplicationContext(), SearchActivity.class).putExtra("type","nickname"));
+                break;
+        }
+
+    }
 }

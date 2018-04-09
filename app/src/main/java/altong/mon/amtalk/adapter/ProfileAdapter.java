@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 
 import java.util.Vector;
 
-import altong.mon.amtalk.item.Profile;
 import altong.mon.amtalk.databinding.ItemHeaderBinding;
 import altong.mon.amtalk.databinding.ItemProfileBinding;
+import altong.mon.amtalk.item.Profile;
 
 /*
  * Created by 15U560 on 2017-11-29.
@@ -51,21 +51,22 @@ public class ProfileAdapter extends RecyclerView.Adapter {
         if(position == MY_HEADER && holder instanceof HeaderHolder) {
             HeaderHolder itemViewHolder = (HeaderHolder) holder;
             final ItemHeaderBinding binding = itemViewHolder.binding;
-            binding.friendHeaderTv.setText(profiles.get(position).getName());
+            binding.friendHeaderTv.setText(profiles.get(position).getNickname());
         } else if (position == FRIEND_HEADER && holder instanceof HeaderHolder) {
             HeaderHolder itemViewHolder = (HeaderHolder) holder;
             final ItemHeaderBinding binding = itemViewHolder.binding;
-            binding.friendHeaderTv.setText(profiles.get(position).getName());
+            binding.friendHeaderTv.setText(profiles.get(position).getNickname());
         } else if (position == MY_PROFILE && holder instanceof ProfileHolder) {
             ProfileHolder itemViewHolder = (ProfileHolder) holder;
             final ItemProfileBinding binding = itemViewHolder.binding;
-            binding.userNameTv.setText(profiles.get(position).getName());
+            binding.userNameTv.setText(profiles.get(position).getNickname());
             binding.profileMsgTv.setText(profiles.get(position).getMsg());
-            binding.profileImgView.setImageResource(profiles.get(position).getUrl());
+            //binding.profileImgView.setImageResource(profiles.get(position).getUrl());
+            //Picasso.with(context).load(profiles.get(position).getStrUrl()).transform(new RoundedCornersTransformation(50,0)).resize(100,100).into(binding.profileImgView);
         } else {
             ProfileHolder itemViewHolder = (ProfileHolder) holder;
             final ItemProfileBinding binding = itemViewHolder.binding;
-            binding.userNameTv.setText(profiles.get(position).getName());
+            binding.userNameTv.setText(profiles.get(position).getNickname());
             binding.profileMsgTv.setText(profiles.get(position).getMsg());
             binding.profileImgView.setImageResource(profiles.get(position).getUrl());
         }

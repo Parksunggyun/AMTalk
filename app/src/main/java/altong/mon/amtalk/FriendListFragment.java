@@ -25,20 +25,26 @@ public class FriendListFragment extends Fragment {
     FragmentFriendlistBinding binding;
     Vector<Profile> profiles;
 
+    String[] myProfiles = new String[4];
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_friendlist, container, false);
+        Bundle args = getArguments();
+        myProfiles[0] = args.getString("email");
+        myProfiles[1] = args.getString("nickname");
+        myProfiles[2] = args.getString("profile");
         LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         binding.myListView.setLayoutManager(manager);
+
         profiles = new Vector<>();
-        profiles.add(new Profile(0,"내 프로필",""));
-        profiles.add(new Profile(R.drawable.naltong,"알통몬","촤하하"));
-        profiles.add(new Profile(0,"친구목록",""));
-        profiles.add(new Profile(R.drawable.ngenyuk,"근육몬","추후후"));
-        profiles.add(new Profile(R.drawable.nguiruk,"괴력몬","췌헤헤"));
+        profiles.add(new Profile("",0,"내 프로필",""));
+        profiles.add(new Profile(myProfiles[2], 0, myProfiles[1],"촤하하"));
+        profiles.add(new Profile("",0,"친구목록",""));
+        profiles.add(new Profile("",R.drawable.ngenyuk,"근육몬","추후후"));
+        profiles.add(new Profile("",R.drawable.nguiruk,"괴력몬","췌헤헤"));
         binding.myListView.setAdapter(new ProfileAdapter(profiles, getContext()));
         View view = binding.getRoot();
 

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="altong.mon.amtalk.login.MembershipActivity">
+
+    <data>
+
+        <variable
+            name="membershipViewModel"
+            type="altong.mon.amtalk.viewmodel.MembershipViewModel"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <altong.mon.amtalk.component.AltongBar
+            android:id="@+id/mToolbar"
+            app:contentInsetStart="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <ImageView
+                android:onClick="@{membershipViewModel::listener}"
+                android:id="@+id/goLoginIv"
+                android:layout_width="@dimen/img_btn_length"
+                android:layout_height="@dimen/img_btn_length"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_arrow_back_black_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:text="@string/membership"
+                android:textColor="@color/black"
+                android:textSize="@dimen/small"
+                android:textStyle="bold" />
+        </altong.mon.amtalk.component.AltongBar>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/titleLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/requestMembershipBtn"
+            app:layout_constraintEnd_toStartOf="@+id/contentLayout"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight=".3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mToolbar">
+
+            <TextView
+                android:id="@+id/emailTxt"
+                style="@style/text_view_membership"
+                android:text="@string/email"
+                app:layout_constraintTop_toTopOf="@+id/titleLayout"
+                app:layout_constraintBottom_toTopOf="@+id/passwordTxt"
+                app:layout_constraintEnd_toEndOf="@+id/titleLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleLayout"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+            <TextView
+                android:id="@+id/passwordTxt"
+                style="@style/text_view_membership"
+                android:text="@string/password"
+                app:layout_constraintTop_toBottomOf="@+id/emailTxt"
+                app:layout_constraintBottom_toTopOf="@+id/birthTxt"
+                app:layout_constraintEnd_toEndOf="@+id/titleLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleLayout"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+            <TextView
+                android:id="@+id/birthTxt"
+                style="@style/text_view_membership"
+                android:text="@string/birth"
+                app:layout_constraintTop_toBottomOf="@+id/passwordTxt"
+                app:layout_constraintBottom_toTopOf="@+id/nicknameTxt"
+                app:layout_constraintEnd_toEndOf="@+id/titleLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleLayout"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+            <TextView
+                android:id="@+id/nicknameTxt"
+                style="@style/text_view_membership"
+                android:text="@string/nickname"
+                app:layout_constraintTop_toBottomOf="@+id/birthTxt"
+                app:layout_constraintBottom_toTopOf="@+id/phoneTxt"
+                app:layout_constraintEnd_toEndOf="@+id/titleLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleLayout"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+            <TextView
+                android:id="@+id/phoneTxt"
+                style="@style/text_view_membership"
+                android:text="@string/phone"
+                app:layout_constraintTop_toBottomOf="@+id/nicknameTxt"
+                app:layout_constraintBottom_toTopOf="@+id/genderTxt"
+                app:layout_constraintEnd_toEndOf="@+id/titleLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleLayout"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+            <TextView
+                android:id="@+id/genderTxt"
+                style="@style/text_view_membership"
+                android:text="@string/gender"
+                app:layout_constraintTop_toBottomOf="@+id/phoneTxt"
+                app:layout_constraintBottom_toTopOf="@+id/asdfTxt"
+                app:layout_constraintEnd_toEndOf="@+id/titleLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleLayout"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+            <View
+                android:id="@+id/asdfTxt"
+                style="@style/text_view_membership"
+                app:layout_constraintTop_toBottomOf="@+id/genderTxt"
+                app:layout_constraintBottom_toTopOf="@+id/bbbbTxt"
+                app:layout_constraintEnd_toEndOf="@+id/titleLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleLayout"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+            <View
+                android:id="@+id/bbbbTxt"
+                style="@style/text_view_membership"
+                app:layout_constraintTop_toBottomOf="@+id/asdfTxt"
+                app:layout_constraintBottom_toBottomOf="@+id/titleLayout"
+                app:layout_constraintEnd_toEndOf="@+id/titleLayout"
+                app:layout_constraintStart_toStartOf="@+id/titleLayout"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/requestMembershipBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight=".7"
+            app:layout_constraintStart_toEndOf="@+id/titleLayout"
+            app:layout_constraintTop_toBottomOf="@+id/mToolbar">
+            <EditText
+                android:id="@+id/emailEditTxt"
+                style="@style/edit_text_membership"
+                android:hint="@string/email_e_g"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toTopOf="@+id/passwordEditTxt"
+                app:layout_constraintTop_toTopOf="@+id/contentLayout"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintVertical_weight="1" />
+
+            <EditText
+                android:id="@+id/passwordEditTxt"
+                style="@style/edit_text_membership"
+                android:hint="@string/password_e_g"
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toTopOf="@+id/birthEditTxt"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintTop_toBottomOf="@+id/emailEditTxt"
+                app:layout_constraintVertical_weight="1" />
+
+            <EditText
+                android:id="@+id/birthEditTxt"
+                style="@style/edit_text_membership"
+                android:hint="@string/birth_e_g"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toTopOf="@+id/nicknameEditTxt"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintTop_toBottomOf="@+id/passwordEditTxt"
+                app:layout_constraintVertical_weight="1" />
+
+            <EditText
+                android:id="@+id/nicknameEditTxt"
+                style="@style/edit_text_membership"
+                android:hint="@string/nickname_e_g"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/phoneEditTxt"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintTop_toBottomOf="@+id/birthEditTxt"
+                app:layout_constraintVertical_weight="1" />
+            <EditText
+                android:id="@+id/phoneEditTxt"
+                style="@style/edit_text_membership"
+                android:hint="@string/phone_e_g"
+                android:inputType="phone"
+                app:layout_constraintBottom_toTopOf="@+id/genderEditTxt"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintTop_toBottomOf="@+id/nicknameEditTxt"
+                app:layout_constraintVertical_weight="1" />
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/genderEditTxt"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/asdfEditTxt"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintTop_toBottomOf="@+id/phoneEditTxt"
+                app:layout_constraintVertical_weight="1" >
+                <TextView
+                    android:onClick="@{membershipViewModel::listener}"
+                    android:id="@+id/maleTv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input"
+                    android:text="@string/male"
+                    android:gravity="center"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/femaleTv"
+                    app:layout_constraintStart_toStartOf="@+id/genderEditTxt"
+                    app:layout_constraintTop_toTopOf="@+id/genderEditTxt"
+                    app:layout_constraintBottom_toBottomOf="@+id/genderEditTxt"/>
+                <TextView
+                    android:onClick="@{membershipViewModel::listener}"
+                    android:id="@+id/femaleTv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/input"
+                    android:text="@string/female"
+                    android:gravity="center"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/maleTv"
+                    app:layout_constraintEnd_toEndOf="@+id/genderEditTxt"
+                    app:layout_constraintTop_toTopOf="@+id/genderEditTxt"
+                    app:layout_constraintBottom_toBottomOf="@+id/genderEditTxt"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:visibility="invisible"
+                android:id="@+id/asdfEditTxt"
+                style="@style/edit_text_membership"
+                app:layout_constraintBottom_toTopOf="@+id/bbbbEditTxt"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintTop_toBottomOf="@+id/genderEditTxt"
+                app:layout_constraintVertical_weight="1" />
+
+            <View
+                android:visibility="invisible"
+                android:id="@+id/bbbbEditTxt"
+                style="@style/edit_text_membership"
+                app:layout_constraintBottom_toBottomOf="@+id/contentLayout"
+                app:layout_constraintEnd_toEndOf="@+id/contentLayout"
+                app:layout_constraintStart_toStartOf="@+id/contentLayout"
+                app:layout_constraintTop_toBottomOf="@+id/asdfEditTxt"
+                app:layout_constraintVertical_weight="1"
+                app:layout_constraintVertical_chainStyle="spread"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:onClick="@{membershipViewModel::listener}"
+            android:id="@+id/requestMembershipBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/requestMembership"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleLayout" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

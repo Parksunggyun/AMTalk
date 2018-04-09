@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
+
+import altong.mon.amtalk.login.LoginActivity;
+import altong.mon.amtalk.security.FingerPrintActivity;
 
 /*
  * Created by 15U560 on 2017-11-29.
  */
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,21 +25,17 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    startActivity(new Intent(activity, MainActivity.class));
-                    /*Class toClass;
-                    SharedPreferences autoLogin = getSharedPreferences(getString(R.string.autoLogin), Activity.MODE_PRIVATE);
-                    String loginId = autoLogin.getString("email", null);
-                    String restId = autoLogin.getString("rest_id", null);
-                    if (!TextUtils.isEmpty(loginId) && !TextUtils.isEmpty(restId)) {
-                        toClass = MainActivity.class;
-                    } else if(!TextUtils.isEmpty(loginId) && TextUtils.isEmpty(restId)){
-                        toClass = SelectRestActivity.class;
+                    if(!TextUtils.isEmpty(email)) {
+                        boolean useFingerprint = userData.getBoolean("fingerprint", false);
+                        Log.d("useFingerprint", "=>" + useFingerprint);
+                        if(useFingerprint) {
+                            startActivity(new Intent(activity, FingerPrintActivity.class));
+                        } else {
+                            startActivity(new Intent(activity, MainActivity.class));
+                        }
                     } else {
-                        toClass = SelectActivity.class;
+                            startActivity(new Intent(activity, LoginActivity.class));
                     }
-                    Intent intent = new Intent(activity, toClass);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.fab_fadein,R.anim.fab_fadeout);*/
                     finish();
                 } catch (Exception e) {
                     e.printStackTrace();

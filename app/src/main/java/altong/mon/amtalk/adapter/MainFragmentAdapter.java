@@ -1,5 +1,6 @@
 package altong.mon.amtalk.adapter;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -16,21 +17,33 @@ public class MainFragmentAdapter extends FragmentStatePagerAdapter {
 
     private static final int PAGE_COUNT = 3;
 
-    public MainFragmentAdapter(FragmentManager fm) {
+    private String[] myProfiles;
+
+    public MainFragmentAdapter(FragmentManager fm, String[] myProfiles) {
         super(fm);
+        this.myProfiles = myProfiles;
     }
 
     @Override
     public Fragment getItem(int position) {
+        Fragment fragment = null;
         switch (position) {
             case 0:
-                return new FriendListFragment();
+                fragment = new FriendListFragment();
+                Bundle args = new Bundle();
+                args.putString("email",myProfiles[0]);
+                args.putString("nickname",myProfiles[1]);
+                args.putString("profile_url",myProfiles[2]);
+                fragment.setArguments(args);
+                break;
             case 1:
-                return new ChatListFragment();
+                fragment = new ChatListFragment();
+                break;
             case 2:
-                return new SetupFragment();
+                fragment =  new SetupFragment();
+                break;
         }
-        return null;
+        return fragment;
     }
 
     @Override

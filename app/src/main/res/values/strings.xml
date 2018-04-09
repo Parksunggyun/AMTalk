@@ -3,4 +3,38 @@
     <string name="friend_txt">Friends</string>
     <string name="my_profile">내 프로필</string>
     <string name="friend_profile">친구목록</string>
+
+    <string name="login_msg">로그인하세요</string>
+    <string name="find_pwd">비밀번호 찾기</string>
+    <string name="email_e_g">email@gmail.com</string>
+    <string name="password_e_g">6자 이상</string>
+    <string name="birth_e_g">주민등록번호 앞 6자리</string>
+    <string name="nickname_e_g">별명</string>
+    <string name="phone_e_g">휴대폰 번호 \'-\' 없이 입력</string>
+    <string name="login">로그인</string>
+    <string name="membership">회원가입</string>
+    <string name="requestMembership">가입하기</string>
+
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+    <string name="birth">생년월일</string>
+    <string name="nickname">별명</string>
+    <string name="phone">휴대폰</string>
+    <string name="gender">성별</string>
+    <string name="male">남자</string>
+    <string name="female">여자</string>
+
+    <string name="search_email">이메일로 추가</string>
+    <string name="search_nickname">별명으로 추가</string>
+
+
+
+    <!-- REQUEST URL -->
+    <string name="rMembership">http://10.20.2.119</string>
+
+    <!--SEARCH-->
+    <string name="searchEmail">이메일로 친구 추가</string>
+    <string name="searchNickname">별명으로 친구 추가</string>
+    <string name="search">찾기</string>
+
 </resources>

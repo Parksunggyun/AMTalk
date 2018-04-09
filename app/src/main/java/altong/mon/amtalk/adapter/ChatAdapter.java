@@ -23,7 +23,7 @@ public class ChatAdapter extends RecyclerView.Adapter {
     private Vector<Chat> chats;
     private Context context;
 
-    ChatAdapter(Vector<Chat> chats, Context context) {
+    public ChatAdapter(Vector<Chat> chats, Context context) {
         this.chats = chats;
         this.context = context;
     }

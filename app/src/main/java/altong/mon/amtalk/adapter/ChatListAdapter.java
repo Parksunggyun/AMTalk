@@ -44,14 +44,14 @@ public class ChatListAdapter extends RecyclerView.Adapter {
         final ItemChatlistBinding binding = itemViewHolder.binding;
         final int pos = position;
         binding.friendProfileImgView.setImageResource(profiles.get(pos).getUrl());
-        binding.friendNameTxtView.setText(profiles.get(pos).getName());
+        binding.friendNameTxtView.setText(profiles.get(pos).getNickname());
         binding.friendLastMsgTxtView.setText(profiles.get(pos).getMsg());
         binding.friendLastMsgTimeTxtView.setText(profiles.get(pos).getTime());
         binding.chatLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity, ChatRoomActivity.class);
-                intent.putExtra("fName", profiles.get(pos).getName());
+                intent.putExtra("fName", profiles.get(pos).getNickname());
                 intent.putExtra("fImg", profiles.get(pos).getUrl());
                 activity.startActivity(intent);
                 activity.finish();

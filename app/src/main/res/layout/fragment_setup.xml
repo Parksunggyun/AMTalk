@@ -1,9 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/personalLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp72">
+                <ImageView
+                    android:padding="@dimen/dp4"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/profileIv"
+                    android:layout_marginStart="@dimen/dp16"
+                    android:layout_marginEnd="@dimen/dp8"
+                    android:contentDescription="@string/app_name"
+                    android:layout_width="@dimen/dp64"
+                    android:layout_height="@dimen/dp64"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/personalNicknameTxtView"/>
+                <TextView
+                    app:layout_constraintStart_toEndOf="@+id/profileIv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/personalEmailTxtView"
+                    android:id="@+id/personalNicknameTxtView"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:gravity="bottom|start"
+                    tools:text="Personal Information"/>
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/personalNicknameTxtView"
+                    app:layout_constraintStart_toStartOf="@+id/personalNicknameTxtView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/personalEmailTxtView"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/subTxtColor"
+                    android:gravity="top|start"
+                    tools:text="Personal Information"/>
+            </android.support.constraint.ConstraintLayout>
+            <View
+                app:layout_constraintTop_toBottomOf="@+id/personalLayout"
+                app:layout_constraintBottom_toTopOf="@id/fingerPrintTxtView"
+                android:id="@+id/view1"
+                android:background="@color/subTxtColor"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <TextView
+                app:layout_constraintTop_toBottomOf="@+id/view1"
+                app:layout_constraintBottom_toTopOf="@id/view2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/useFingerprintSwitch"
+                android:id="@+id/fingerPrintTxtView"
+                android:drawableStart="@drawable/ic_fingerprint_black_24dp"
+                android:drawablePadding="@dimen/dp8"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:paddingStart="@dimen/dp16"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center|start"
+                android:text="Finger Print / Security"
+                app:layout_constraintHorizontal_weight="1"/>
+            <android.support.v7.widget.SwitchCompat
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/fingerPrintTxtView"
+                app:layout_constraintTop_toTopOf="@id/fingerPrintTxtView"
+                app:layout_constraintStart_toEndOf="@id/fingerPrintTxtView"
+                android:id="@+id/useFingerprintSwitch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp16"
+                android:theme="@style/fingerAuthSwitch"
+                app:layout_constraintHorizontal_weight="0.2" />
+            <View
+                app:layout_constraintTop_toBottomOf="@+id/fingerPrintTxtView"
+                app:layout_constraintBottom_toTopOf="@id/logoutBtn"
+                android:id="@+id/view2"
+                android:background="@color/subTxtColor"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/view2"
+                android:id="@+id/logoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:paddingStart="@dimen/dp16"
+                android:paddingEnd="0dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center|start"
+                android:text="log out" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </layout>

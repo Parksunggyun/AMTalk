@@ -9,4 +9,5 @@
     <color name="subBlack">#FF231815</color>
     <color name="white">#FFFFFFFF</color>
     <color name="subTxtColor">#FF969696</color>
+    <color name="black_semi_transparent">#B2000000</color>
 </resources>
